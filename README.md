@@ -13,7 +13,7 @@ TODO: info on output CSV format
 
 1. Wire up sensor to Raspberry Pi via UART and create Python script to read its output [x]
 2. Parse output string and write to CSV file with a measurment per second [x]
-3. Create a new CSV file every minute with each containing a header row and a minutes worth of measurements - each file should be named with the following format: `sonycnode-xxxxxxxxxxxx-pm-YYYY_MM_DD-HH_MM_SS.csv` [ ]
+3. Create a new CSV file every minute with each containing a header row and a minutes worth of measurements - each file should be named with the following format: `sonycnode-xxxxxxxxxxxx-pm-YYYY_MM_DD-HH_MM_SS.csv` [X]
 4. Collect a few days worth of continuous data from the sensor nearby an open window [ ]
 5. Create a Jupyter Notebook in this repository and plot the data using matplotlib [ ]
 
