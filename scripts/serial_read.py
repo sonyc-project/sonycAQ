@@ -1,3 +1,4 @@
+## Current (as of 06-24-2021) python program for taking a serial measurement from the IPS and writing to a single csv file once.
 ## Author: James Venditto (jmv7849@nyu.edu)
 # SONYC - AQ Sensor Project
 # This program reads AQ data from an IPS-7100 sensor attached to the serial port of a 
