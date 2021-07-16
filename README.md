@@ -20,17 +20,17 @@ CSV files are generated once every minute, and a reading is taken every second, 
 1. Wire up sensor to Raspberry Pi via UART and create Python script to read its output [x]
 2. Parse output string and write to CSV file with a measurment per second [x]
 3. Create a new CSV file every minute with each containing a header row and a minutes worth of measurements - each file should be named with the following format: `sonycnode-xxxxxxxxxxxx-pm-YYYY_MM_DD-HH_MM_SS.csv` [x]
-4. Collect a few days worth of continuous data from the sensor nearby an open window [ ]
-5. Create a Jupyter Notebook in this repository and plot the data using matplotlib [ ]
+4. Collect a few days worth of continuous data from the sensor nearby an open window [x]
+5. Create a Jupyter Notebook in this repository and plot the data using matplotlib [x]
 
 ## Script information
 
-The current Python script used to record data and write to .csv files is called `AQ_test1.py` and is stored in the scripts folder.
+The current Python script used to record data and write to .csv files is called `AQ_test5.py` and is stored in the `scripts` folder.
 
-The program first must initialize the serial port on the Raspberry Pi with the settings of the IPS-7100. The rest of the code is contained in a `while` loop which iterates each minute (a single .csv file). In the final version of the program this will be an infinite loop, but for now it is finite and set by the `min_count` variable, which sets how many minutes the program runs, and, therefore, how many .csv files, are created. 
+The program first must initialize the serial port on the Raspberry Pi with the settings of the IPS-7100. The rest of the code is contained in an infinite `while` loop. If the program detects the bus is unreadable, or has wrongly formatted data, it will not create a new .csv file and will wait until it has proper data. Otherwise, it will create a new .csv file with the appropriate timestamp, and then write new rows of data every second for one minute. In general, each .csv file is 1 minute worth of data. However, if during this time the bus becomes unreadable or improper data is detected, the program will exit the 1 minute loop and wait for proper data, upon which it begins a new .csv file.
 
-At the beginning of the loop, the timestamp is recorded in `yyyy-mm-dd-hh-MM-ss` format and used to make the .csv file's title. The header is then written using regex functions. The second counter variable,`sec_count`, which ensures 60 entries per file, is initialized.
+Assuming proper data, the timestamp is recorded in `yyyy-mm-dd-hh-MM-ss` format and used to make the .csv file's title. The header is then written using regex functions. The counter variable,`sec_count`, which ensures 60 entries per file, is initialized.
 
-The second `while` loop keeps track of the entries (or number of seconds) written. First data is collected from the serial bus, and the current time in seconds from the epoch is recorded. It then uses regex functions to format the string, removing non-numerical characters apart from commas separating numerical values. Next it uses a regex function that splits the values into individual elements of an array (the commas allow demarcation of the values). This array, along with the current time recorded prior, are used to write a new row in the current .csv file. The Raspberry Pi then sleeps for 1 second, before finally incrementing the counter variables and returning to the start of the loop.
+The second `while` loop keeps track of the entries (or number of seconds) written. If the bus is readable, data is collected and checked for proper formatting. If correct, the current time in seconds from the epoch is recorded. It then uses regex functions to format the string, removing non-numerical characters apart from commas separating numerical values. Next it uses a regex function that splits the values into individual elements of an array (the commas allow demarcation of the values). This array, along with the current time recorded prior, are used to write a new row in the current .csv file. The Raspberry Pi then sleeps for 1 second, before finally incrementing the counter variable and returning to the start of the loop.
 
 This script uses the `serial`, `time`, `csv`, and `re` Python libraries. 
