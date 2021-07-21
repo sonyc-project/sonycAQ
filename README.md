@@ -3,6 +3,12 @@ Repository to house the code and related docs for the air quality (AQ) aspects o
 
 The AQ sensor chosen is the [Piera IPS-7100 Intelligent Particle Sensor](https://www.pierasystems.com/products/piera-7100-intelligent-particle-sensor) which communiactes via UART with the SONYC project's Raspberry Pi 4B based noise sensor.
 
+## Introduction - Why is AQ part of SONYC?
+Under construction.......
+
+
+## Data Formatting Information
+
 ### Output String Information
 Output information from the IPS is delivered to the Pi as a string. This string contains the particle count and particle mass for the particle sizes measured by the sensor (PM0.1, PM0.3, PM0.5, PM1.0, PM2.5, PM5.0, and PM10) in the units the sensor is set to. Under default settings, the count is measured in # of particles per liter (#/L), and the mass in micrograms per cubic meter (ug/m^3). Also under default settings, the string terminates with the sensor's serial number and network key.
 
@@ -15,7 +21,7 @@ CSV files are generated once every minute, and a reading is taken every second, 
 ### CSV File Header
 `datetime,PC0.1,PC0.3,PC0.5,PC1.0,PC2.5,PC5.0,PC10,PM0.1,PM0.3,PM0.5,PM1.0,PM2.5,PM5.0,PM10`
 
-## Development stages
+## Previous Development Stages (Completed)
 
 1. Wire up sensor to Raspberry Pi via UART and create Python script to read its output [x]
 2. Parse output string and write to CSV file with a measurment per second [x]
@@ -25,7 +31,7 @@ CSV files are generated once every minute, and a reading is taken every second, 
 
 ## Script information
 
-The current Python script used to record data and write to .csv files is called `AQ_test5.py` and is stored in the `scripts` folder.
+The current Python script used to record data and write to .csv files is called [AQ_test5.py](https://github.com/sonyc-project/sonycAQ/blob/main/scripts/AQ_test5.py) and is stored in the `scripts` folder.
 
 The program first must initialize the serial port on the Raspberry Pi with the settings of the IPS-7100. The rest of the code is contained in an infinite `while` loop. If the program detects the bus is unreadable, or has wrongly formatted data, it will not create a new .csv file and will wait until it has proper data. Otherwise, it will create a new .csv file with the appropriate timestamp, and then write new rows of data every second for one minute. In general, each .csv file is 1 minute worth of data. However, if during this time the bus becomes unreadable or improper data is detected, the program will exit the 1 minute loop and wait for proper data, upon which it begins a new .csv file.
 
