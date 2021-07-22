@@ -3,8 +3,15 @@ Repository to house the code and related docs for the air quality (AQ) aspects o
 
 The AQ sensor chosen is the [Piera IPS-7100 Intelligent Particle Sensor](https://www.pierasystems.com/products/piera-7100-intelligent-particle-sensor) which communiactes via UART with the SONYC project's Raspberry Pi 4B based noise sensor.
 
+
 ## Introduction - Why is AQ part of SONYC?
-Under construction.......
+Air pollutants, including particulate matter (PM's), particularly PM2.5, are a significant health concern in urban areas such as New York City. The NYC Department of Health estimates approximately 3,000 people die each year due to PM2.5-related illnesses in the city, and approximately 8,000 more hospital visits can be linked to dangerous PM2.5 exposure. [Maps](https://www1.nyc.gov/assets/doh/downloads/pdf/eode/eode-air-quality-impact.pdf) from a study by the Department of Health show that the distribution of PM2.5-related medical incidents is not even across neighborhoods, and is elevated with higher poverty rates. This shows that particulate matter air pollution is a community-based problem, that may have a community-based solution.
+
+SONYC has spent years working with citizen-science based approaches to the issue of noise pollution in New York City, and we are now capable of expanding that infrastructure to examine air pollution. The availablility of reasonably-priced and scalable devices such as the IPS-7100 will allow us to eventually create a wide network of citizen-based  collectors of air pollutant levels and air quality in New York City neighborhoods.
+
+We are particularly interested in examining air pollution due to the potential correlation between it and noise pollution. Some research into this correlation has been done, but neither in NYC residential settings, nor through a citizen-based initiative. SONYC is in a unique position to leverage existing sound-collecting apparatus and community relationships towards examining this correlation. More data regarding this correlation may lead to better understandings of links between air or noise pollution and certain health conditions, and can help city agencies and community groups to better devote resources to neighborhoods with pollution problems.
+
+Additionally, SONYC's existing app for delivering sound data to residents in real time and requesting their qualitative analysis of sound quality can be modified to perform the same functions with air quality. AQ data processed by the new code can be delivered into the app and presented in real time, in a manner suitable for a non-specialist audience. It can also be used as a means for collecting qualitative data, allowing us to link quantitative analysis with qualitative feedback.
 
 
 ## Data Formatting Information
@@ -21,6 +28,7 @@ CSV files are generated once every minute, and a reading is taken every second, 
 ### CSV File Header
 `datetime,PC0.1,PC0.3,PC0.5,PC1.0,PC2.5,PC5.0,PC10,PM0.1,PM0.3,PM0.5,PM1.0,PM2.5,PM5.0,PM10`
 
+
 ## Previous Development Stages (Completed)
 
 1. Wire up sensor to Raspberry Pi via UART and create Python script to read its output [x]
@@ -28,6 +36,7 @@ CSV files are generated once every minute, and a reading is taken every second, 
 3. Create a new CSV file every minute with each containing a header row and a minutes worth of measurements - each file should be named with the following format: `sonycnode-xxxxxxxxxxxx-pm-YYYY_MM_DD-HH_MM_SS.csv` [x]
 4. Collect a few days worth of continuous data from the sensor nearby an open window [x]
 5. Create a Jupyter Notebook in this repository and plot the data using matplotlib [x]
+
 
 ## Script information
 
