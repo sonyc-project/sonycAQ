@@ -21,3 +21,13 @@ The notebooks present represent the most relevant and up-to-date analysis. These
  - Plots daily PM values in a bar graph with treshold lines (values from the literature).
  - Calculates the PM2.5 AQI for each day and graphs these values (both with and without treshold lines).
  - Calculates the PM10 AQI for each day and graphs these values (both with and without treshold lines).
+
+[Multi-Day Longitudinal Analysis 2](https://github.com/sonyc-project/sonycAQ/blob/main/notebooks/Multi-Day%20Longitudinal%20Analysis%202.ipynb) imports and concatenates the .csv files from 4.5 days worth of analysis. It does the following:
+
+ - Creates bar graphs of certain hourly PM value concentrations.
+ - Creates bar graphs of certain daily PM value concentrations.
+ - Creates rolling hourly average PM values and plots them vs. time.
+ - Plots hourly PM values in a bar graph with treshold lines (values from the literature).
+ - Plots daily PM values in a bar graph with treshold lines (values from the literature).
+ - Calculates the PM2.5 AQI for each day and graphs these values (both with and without treshold lines).
+ - Calculates the PM10 AQI for each day and graphs these values (both with and without treshold lines).
