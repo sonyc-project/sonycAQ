@@ -7,6 +7,14 @@ The AQ sensor chosen is the [Piera IPS-7100 Intelligent Particle Sensor](https:/
 ## Introduction - Why is AQ part of SONYC?
 Air pollutants, including particulate matter (PM's), particularly PM2.5, are a significant health concern in urban areas such as New York City. The NYC Department of Health estimates approximately 3,000 people die each year due to PM2.5-related illnesses in the city, and approximately 8,000 more hospital visits can be linked to dangerous PM2.5 exposure. [Maps](https://www1.nyc.gov/assets/doh/downloads/pdf/eode/eode-air-quality-impact.pdf) from a study by the Department of Health show that the distribution of PM2.5-related medical incidents is not even across neighborhoods, and is elevated with higher poverty rates. This shows that particulate matter air pollution is a community-based problem, that may have a community-based solution.
 
+The following tables from the aforementioned [Department of Health study](https://www1.nyc.gov/assets/doh/downloads/pdf/eode/eode-air-quality-impact.pdf) illustrate the danger of NYC PM2.5 concentrations and showcase the exacerbated risk to communities with high poverty rates. Further figures are available at the source.
+
+![image](https://user-images.githubusercontent.com/86373439/128933800-203ed878-9706-475b-8545-4675aa4cc693.png)
+
+![image](https://user-images.githubusercontent.com/86373439/128934092-9049ec9c-7452-40d1-ad3f-a3150b4776e7.png)
+
+Images courtesy of the NYC Department of Health and Mental Hygiene.
+
 SONYC has spent years working with citizen-science based approaches to the issue of noise pollution in New York City, and we are now capable of expanding that infrastructure to examine air pollution. The availablility of reasonably-priced and scalable devices such as the IPS-7100 will allow us to eventually create a wide network of citizen-based  collectors of air pollutant levels and air quality in New York City neighborhoods.
 
 We are particularly interested in examining air pollution due to the potential correlation between it and noise pollution. Some research into this correlation has been done, but neither in NYC residential settings, nor through a citizen-based initiative. SONYC is in a unique position to leverage existing sound-collecting apparatus and community relationships towards examining this correlation. More data regarding this correlation may lead to better understandings of links between air or noise pollution and certain health conditions, and can help city agencies and community groups to better devote resources to neighborhoods with pollution problems.
@@ -38,7 +46,7 @@ CSV files are generated once every minute, and a reading is taken every second, 
 5. Create a Jupyter Notebook in this repository and plot the data using matplotlib [x]
 
 
-## Script information
+## Script Information
 
 The current Python script used to record data and write to .csv files is called [AQ_test5.py](https://github.com/sonyc-project/sonycAQ/blob/main/scripts/AQ_test5.py) and is stored in the `scripts` folder.
 
