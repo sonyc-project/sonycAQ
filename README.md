@@ -3,6 +3,7 @@ Repository to house the code and related docs for the air quality (AQ) aspects o
 
 The AQ sensor chosen is the [Piera IPS-7100 Intelligent Particle Sensor](https://www.pierasystems.com/products/piera-7100-intelligent-particle-sensor) which communiactes via UART with the SONYC project's Raspberry Pi 4B based noise sensor.
 
+![image](https://user-images.githubusercontent.com/86373439/128935455-52568d5b-1691-46e3-8aee-3af3ae30c94b.png)
 
 ## Introduction - Why is AQ part of SONYC?
 Air pollutants, including particulate matter (PM's), particularly PM2.5, are a significant health concern in urban areas such as New York City. The NYC Department of Health estimates approximately 3,000 people die each year due to PM2.5-related illnesses in the city, and approximately 8,000 more hospital visits can be linked to dangerous PM2.5 exposure. [Maps](https://www1.nyc.gov/assets/doh/downloads/pdf/eode/eode-air-quality-impact.pdf) from a study by the Department of Health show that the distribution of PM2.5-related medical incidents is not even across neighborhoods, and is elevated with higher poverty rates. This shows that particulate matter air pollution is a community-based problem, that may have a community-based solution.
