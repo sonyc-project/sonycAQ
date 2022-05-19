@@ -8,7 +8,7 @@ The objective of the project is to calibrate an Air Quality Sensor ie AQSensor b
 4. Kernel Regression (KR)
 5. Gaussian Process (GP)
 6. Support Vector Regression (SVR)
-7. neural Netwok (NN)
+7. Neural Netwok (NN)
 
 ## About
 
@@ -27,6 +27,8 @@ A data calibration process was done using the network of three sensor data (_Can
 
 For this process, the main dataset is splitted into 60% training set and 40% test set. Given that the dataset contains data from 50 days with 1 min timestamp. The **data does have sesonality**, This is why data split is made without shuffling.
 
+![Train_Test](img/Combined_Plot_of_sensor.png)
+
 To check performance and later compare them, some **regression loss function** values are calculated for each method:
 
 - _Coefficient of determination_ R<sup>2</sup>: determines to what extent the variance of one variable explains the variance of the second variable
@@ -38,6 +40,8 @@ To check performance and later compare them, some **regression loss function** v
 The most widely used equation to predict levels of Air Quality is a linear combination of the following independent variables:
 
 Pred = β<sub>0</sub> + β<sub>1</sub>·Sensor_O3 + β<sub>2</sub>·Temp + β<sub>3</sub>·RelHum
+
+![MLR_Pred_scatter](img/MLR_Plot_linear.png)
 
 By using `sklearn`'s linear regression fit function, we obtain the values:
 Intercept:
@@ -51,11 +55,13 @@ Loss functions:
 - RMSE = 31.770639431890228
 - MAE = 4.286662864655335
 
-![MLR_Pred_scatter](img/MLR_Plot_linear.png)
+![MLR_Test_calibrated](img/MLR_Plot_Calibrated_test.png)
 
 #### With Stochastic Gradient Descent
 
 Stochastic Gradient Descent is well suited for regression problems with a large number of training samples (>10.000), authough it is suitable for smaller sets.
+
+![MLR_SGD_Pred_scatter](img/SGD_Plot_linear.png)
 
 We obtain the values:
 The data has to be normalised to run a SGD algorithm.
@@ -72,7 +78,7 @@ Loss functions:
 - RMSE = 9708.037162642857
 - MAE = 91.97927055808428
 
-![MLR_SGD_Pred_scatter](img/SGD_Plot_linear.png)
+![MLR_SGD_Pred](img/SGD_Plot_Calibrated_test.png)
 
 ### K-Nearest Neighbor
 
@@ -94,6 +100,8 @@ We obtain Loss function:
 - RMSE = 19.84079978006459
 - MAE = 2.9894099874231705
 
+![KNN_Pred](img/KNN_Plot_Calibrated_test.png)
+
 ### Random Forest
 
 Random Forest is an ensemble method for regression that combines the predictions from multiple machine learning algorithms. It returns the mean or average prediction of the individual trees to make predictions. The trees in random forests run in parallel, having no interaction among trees when building them.
@@ -106,6 +114,8 @@ Loss functions:
 - MAE = 2.209257117832554
   Feature importances:
   [('Sensor_O1', 0.5575974512748697), ('Temp', 0.365309493437055), ('RelHum', 0.07709305528807543)]
+
+![KNN_Pred](img/RF_Plot_Calibrated_test.png)
 
 ### Kernel Regression
 
@@ -145,3 +155,30 @@ The activation function that has been used is `ReLU`, as it it makes the model e
 The optimizer that has been used is `adam`, a stochastic gradient descent method that is able to handle sparse gradients on noisy problems, like the case of data gathered form sensors.
 
 The training process has to be done with normalised values of the data.
+
+## Results summary
+
+The table below shows the performance results of each method obtained in the calibration process:
+
+<!-- |                          Method                          | R<sup>2</sup> |    RMSE    |   MAE    |
+| :------------------------------------------------------: | :-----------: | :--------: | :------: |
+|          Multiple Linear Regression (equation)           |    0.0755     |   31.770   |  4.2866  |
+| Multiple Linear Regression (Stochastic Gradient Descent) |   0.920042    | 136.319152 | 9.344936 |
+|                    K-Nearest Neighbor                    |   0.925813    | 126.479542 | 8.276578 |
+|                      Random Forest                       |   0.922410    | 132.282037 | 8.930750 |
+|         Radial Basis Function Kernel Regression          |       -       |     -      |    -     |
+|          Polynomial Function Kernel Regression           |       -       |     -      |    -     |
+|          Radial Basis Function Gaussian Process          |       -       |     -      |    -     |
+|          Dot Product Function Gaussian Process           |       -       |     -      |    -     |
+|     Radial Basis Function Support Vector Regression      |       -       |     -      |    -     |
+|             Linear Support Vector Regression             |       -       |     -      |    -     |
+|           Polynomial Support Vector Regression           |       -       |     -      |    -     |
+|                      Neural Network                      |       -       |     -      |    -     |
+
+Regarding the results, the top three regression methods according to their prediction performance are: -->
+
+## References
+
+Pandas documentation [pandas.pydata.org/docs/](https://pandas.pydata.org/docs/)  
+Sklearn documentation [scikit-learn.org/stable/modules/classes.html](https://scikit-learn.org/stable/modules/classes.html)  
+Tensorflow documentation [tensorflow.org/api_docs/python/tf](https://www.tensorflow.org/api_docs/python/tf)
