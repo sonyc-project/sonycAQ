@@ -66,17 +66,17 @@ Stochastic Gradient Descent is well suited for regression problems with a large 
 We obtain the values:
 The data has to be normalised to run a SGD algorithm.
 Intercept:
-[6.54657478]
+[6.49759358]
 Coefficients:
-[-0.0567019 0.48143305 1.67106181]
+[-0.11402433 0.5023743 1.64841827]
 Iters:
 5
-{'alpha': 0.0001, 'average': False, 'early_stopping': False, 'epsilon': 0.1, 'eta0': 0.01, 'fit_intercept': True, 'l1_ratio': 0.15, 'learning_rate': 'invscaling', 'loss': 'squared_error', 'max_iter': 5, 'n_iter_no_change': 5, 'penalty': 'l1', 'power_t': 0.25, 'random_state': None, 'shuffle': True, 'tol': 0.001, 'validation_fraction': 0.1, 'verbose': 0, 'warm_start': False}
+{'alpha': 0.0001, 'average': False, 'early_stopping': False, 'epsilon': 0.1, 'eta0': 0.01, 'fit_intercept': True, 'l1_ratio': 0.15, 'learning_rate': 'invscaling', 'loss': 'squared_loss', 'max_iter': 5, 'n_iter_no_change': 5, 'penalty': 'l2', 'power_t': 0.25, 'random_state': None, 'shuffle': True, 'tol': 0.001, 'validation_fraction': 0.1, 'verbose': 0, 'warm_start': False}
 Loss functions:
 
-- R-squared = -281.48120267320917
-- RMSE = 9708.037162642857
-- MAE = 91.97927055808428
+- R-squared = 0.07084816845819308
+- RMSE = 31.93217964588136
+- MAE = 4.315783521089843
 
 ![MLR_SGD_Pred](img/SGD_Plot_Calibrated_test.png)
 
