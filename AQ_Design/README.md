@@ -1,3 +1,3 @@
 # This folder contains the housing design for AQ sensor
 
-[Intro.pdf] (DWG File PDF/Assembly-final.pdf)
+[Final Assembly.pdf] (DWG File PDF/Assembly-final.jpg)
