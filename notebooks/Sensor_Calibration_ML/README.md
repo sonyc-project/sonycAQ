@@ -140,7 +140,7 @@ Loss functions:
 - RMSE = 54.89304429167744
 - MAE = 4.36074889732449
 
-![SVM_RBF_Pred](img/SVM_RBF_Plot_Calibrated_test.png)
+![SVR_RBF_Pred](img/SVR_RBF_Plot_Calibrated_test.png)
 
 - Linear
 - Polynomial, degree 3
