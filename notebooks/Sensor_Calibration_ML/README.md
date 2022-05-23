@@ -167,6 +167,14 @@ The optimizer that has been used is `adam`, a stochastic gradient descent method
 
 The training process has to be done with normalised values of the data.
 
+Loss functions:
+
+- R-squared = 0.021207725849813674
+- RMSE = 33.638173733458544
+- MAE = 3.8195544433765534
+
+![NN_Pred](img/NN_Plot_Calibrated_test.png)
+
 ## Results summary
 
 The table below shows the performance results of each method obtained in the calibration process:
@@ -184,9 +192,15 @@ The table below shows the performance results of each method obtained in the cal
 |     Radial Basis Function Support Vector Regression      |      0.5972      |      54.893      |      4.3607      |
 |             Linear Support Vector Regression             |        -         |        -         |        -         |
 |           Polynomial Support Vector Regression           |        -         |        -         |        -         |
-|                      Neural Network                      |        -         |        -         |        -         |
+|                      Neural Network                      |      0.021       |      33.63       |      3.819       |
 
 Regarding the results, the top three regression methods according to their prediction performance are:
+
+|       Method       | R<sup>2</sup> |  RMSE  |  MAE   |
+| :----------------: | :-----------: | :----: | :----: |
+|   Random Forest    |    0.6535     | 11.906 | 2.2095 |
+| KNear--st Neighbor |    0.4226     | 19.840 | 2.9890 |
+|   Neural Network   |     0.021     | 33.63  | 3.819  |
 
 ## References
 
