@@ -171,22 +171,22 @@ The training process has to be done with normalised values of the data.
 
 The table below shows the performance results of each method obtained in the calibration process:
 
-<!-- |                          Method                          | R<sup>2</sup> |    RMSE    |   MAE    |
-| :------------------------------------------------------: | :-----------: | :--------: | :------: |
-|          Multiple Linear Regression (equation)           |       -       |     -      |    -     |
-| Multiple Linear Regression (Stochastic Gradient Descent) |       -       |     -      |    -     |
-|                    KNear--st Neighbor                    |       -       |     -      |    -     |
-|                      Random Forest                       |       -       |     -      |    -     |
-|         Radial Basis Function Kernel Regression          |       -       |     -      |    -     |
-|          Polynomial Function Kernel Regression           |       -       |     -      |    -     |
-|          Radial Basis Function Gaussian Process          |       -       |     -      |    -     |
-|          Dot Product Function Gaussian Process           |       -       |     -      |    -     |
-|     Radial Basis Function Support Vector Regression      |       -       |     -      |    -     |
-|             Linear Support Vector Regression             |       -       |     -      |    -     |
-|           Polynomial Support Vector Regression           |       -       |     -      |    -     |
-|                      Neural Network                      |       -       |     -      |    -     |
+|                          Method                          |  R<sup>2</sup>   |       RMSE       |       MAE        |
+| :------------------------------------------------------: | :--------------: | :--------------: | :--------------: |
+|          Multiple Linear Regression (equation)           |      0.0755      |      31.770      |      4.2866      |
+| Multiple Linear Regression (Stochastic Gradient Descent) |      0.0708      |      31.932      |      4.3157      |
+|                    KNear--st Neighbor                    |      0.4226      |      19.840      |      2.9890      |
+|                      Random Forest                       |      0.6535      |      11.906      |      2.2095      |
+|         Radial Basis Function Kernel Regression          | RAM exceed error | RAM exceed error | RAM exceed error |
+|          Polynomial Function Kernel Regression           | RAM exceed error | RAM exceed error | RAM exceed error |
+|          Radial Basis Function Gaussian Process          | RAM exceed error | RAM exceed error | RAM exceed error |
+|          Dot Product Function Gaussian Process           | RAM exceed error | RAM exceed error | RAM exceed error |
+|     Radial Basis Function Support Vector Regression      |      0.5972      |      54.893      |      4.3607      |
+|             Linear Support Vector Regression             |        -         |        -         |        -         |
+|           Polynomial Support Vector Regression           |        -         |        -         |        -         |
+|                      Neural Network                      |        -         |        -         |        -         |
 
-Regarding the results, the top three regression methods according to their prediction performance are: -->
+Regarding the results, the top three regression methods according to their prediction performance are:
 
 ## References
 
