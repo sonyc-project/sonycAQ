@@ -131,6 +131,17 @@ Polynomial kernel has one hyperparameter, which is the **polynomial degree**.
 Support Vector Regression is used with three kernels:
 
 - RBF
+
+Intercept:
+[1.68250378]
+Loss functions:
+
+- R-squared = -0.5972593542982951
+- RMSE = 54.89304429167744
+- MAE = 4.36074889732449
+
+![SVM_RBF_Pred](img/SVM_RBF_Plot_Calibrated_test.png)
+
 - Linear
 - Polynomial, degree 3
 
