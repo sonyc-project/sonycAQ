@@ -57,7 +57,7 @@ Loss functions:
 
 ![MLR_Test_calibrated](img/MLR_Plot_Calibrated_test.png)
 
-#### With Stochastic Gradient Descent
+### Stochastic Gradient Descent
 
 Stochastic Gradient Descent is well suited for regression problems with a large number of training samples (>10.000), authough it is suitable for smaller sets.
 
@@ -162,10 +162,10 @@ The table below shows the performance results of each method obtained in the cal
 
 <!-- |                          Method                          | R<sup>2</sup> |    RMSE    |   MAE    |
 | :------------------------------------------------------: | :-----------: | :--------: | :------: |
-|          Multiple Linear Regression (equation)           |    0.0755     |   31.770   |  4.2866  |
-| Multiple Linear Regression (Stochastic Gradient Descent) |   0.920042    | 136.319152 | 9.344936 |
-|                    K-Nearest Neighbor                    |   0.925813    | 126.479542 | 8.276578 |
-|                      Random Forest                       |   0.922410    | 132.282037 | 8.930750 |
+|          Multiple Linear Regression (equation)           |       -       |     -      |    -     |
+| Multiple Linear Regression (Stochastic Gradient Descent) |       -       |     -      |    -     |
+|                    KNear--st Neighbor                    |       -       |     -      |    -     |
+|                      Random Forest                       |       -       |     -      |    -     |
 |         Radial Basis Function Kernel Regression          |       -       |     -      |    -     |
 |          Polynomial Function Kernel Regression           |       -       |     -      |    -     |
 |          Radial Basis Function Gaussian Process          |       -       |     -      |    -     |
