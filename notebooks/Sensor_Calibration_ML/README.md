@@ -44,11 +44,13 @@ Pred = β<sub>0</sub> + β<sub>1</sub>·Sensor_O3 + β<sub>2</sub>·Temp + β<su
 ![MLR_Pred_scatter](img/MLR_Plot_linear.png)
 
 By using `sklearn`'s linear regression fit function, we obtain the values:
+
 Intercept:
 0.6723677017929273
 Coefficients:
 [-0.00057884 0.06809885 0.11411421]
 0.08562066689158321
+
 Loss functions:
 
 - R-squared = 0.07554861131433477
@@ -65,6 +67,7 @@ Stochastic Gradient Descent is well suited for regression problems with a large 
 
 We obtain the values:
 The data has to be normalised to run a SGD algorithm.
+
 Intercept:
 [6.49759358]
 Coefficients:
@@ -107,13 +110,15 @@ We obtain Loss function:
 Random Forest is an ensemble method for regression that combines the predictions from multiple machine learning algorithms. It returns the mean or average prediction of the individual trees to make predictions. The trees in random forests run in parallel, having no interaction among trees when building them.
 
 The obtained loss functions for Random Forest with the hyperparameters specified above are:
+
 Loss functions:
 
 - R-squared = 0.6535566226985347
 - RMSE = 11.906226502033737
 - MAE = 2.209257117832554
-  Feature importances:
-  [('Sensor_O1', 0.5575974512748697), ('Temp', 0.365309493437055), ('RelHum', 0.07709305528807543)]
+
+Feature importances:
+[('Sensor_O1', 0.5575974512748697), ('Temp', 0.365309493437055), ('RelHum', 0.07709305528807543)]
 
 ![KNN_Pred](img/RF_Plot_Calibrated_test.png)
 
