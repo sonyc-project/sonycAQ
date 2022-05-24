@@ -1,0 +1,13 @@
+
+Todo:
+  ✔ Add date to saved values @done(20-05-15 19:26)
+  ✔ Add From - To Date Range Option @done(20-06-03 22:01)
+  ✔ Write CSV file @done(20-07-03 10:40)
+  ✔ Finish completing all units converter @done(20-07-03 13:40)
+  ✔ Separate DateTime to Date and Time columns @done(20-07-03 13:41)
+  ✔ separate config file @done(20-07-03 14:26)
+  ✔ name files with station_names @done(20-07-03 14:46)
+  ✔ add error handling to UnitConverter @done(20-07-03 15:11)
+  ✔ Write Dates in YYYY MM DD format @done(20-07-04 11:54)
+  ☐ See if there is a way to start downloading from first available date
+  ☐ Write one more column with date_time
