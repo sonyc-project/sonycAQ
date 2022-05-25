@@ -18,8 +18,8 @@ The Data is organized as follows:
 
 1. RefSt: Reference value of highly calibrated Sensor Praxis_Data_pm2.5.
 2. Sensor_01: Canary_Data_pm2.5 Sensor which need to be calibrated.
-3. Temp: Temperature Data from Canary_sensor or from vicinity station.
-4. RelHum: Relative Humidity from Canary_sensor from vicinity station.
+3. Temp: Temperature Data from Canary_sensor.
+4. RelHum: Relative Humidity from Canary_sensor.
 
 ## Data Calibration
 
