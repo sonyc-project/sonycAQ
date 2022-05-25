@@ -61,7 +61,7 @@ You resulting CSV file will look something like this (if you give it a nice form
 
 ![CSV example](https://raw.githubusercontent.com/Karlheinzniebuhr/the-weather-scraper/master/resources/csv.JPG)
 
-### Running Scraper and ML Modal from a single script
+## Running Scraper and ML Modal from a single script
 
 You can directly run the weather scraper and the machine learning modal from a single file by:
 
@@ -73,7 +73,7 @@ The script first find the weather .csv file if it found's one then it will delet
 
 Also, by relying on local weather data for sensor calibration it was seen that there is approx 92% dominance of the AQ_sensor data compared to Temperature and Relative Humidity data.
 
-### Calibration of sensors in an Uncontrolled Environment under Sounds of New York City Project.
+## Calibration of sensors in an Uncontrolled Environment under Sounds of New York City Project.
 
 The objective of the project is to calibrate an Air Quality Sensor ie AQSensor by using different method such as _Machine Learning_ and _Neural Network_:
 
@@ -107,3 +107,37 @@ To check performance and later compare them, some **regression loss function** v
 - _Coefficient of determination_ R<sup>2</sup>: determines to what extent the variance of one variable explains the variance of the second variable
 - _Root-mean-square error_ RMSE: the standard deviation of the residuals (prediction errors)
 - _Mean absolute error_ MAE: a measure of errors between paired observations expressing the same phenomenon
+
+## Results summary
+
+The table below shows the performance results of each method obtained in the calibration process:
+
+|                          Method                          |       R<sup>2</sup>        |            RMSE            |            MAE             |
+| :------------------------------------------------------: | :------------------------: | :------------------------: | :------------------------: |
+|          Multiple Linear Regression (equation)           |           0.3000           |          22.8200           |           3.3911           |
+| Multiple Linear Regression (Stochastic Gradient Descent) |           0.3710           |          20.4870           |           3.116            |
+|                    KNear--st Neighbor                    |           0.3332           |          21.7400           |           2.866            |
+|                      Random Forest                       |           0.1903           |          26.39200          |           3.071            |
+|         Radial Basis Function Kernel Regression          |      RAM exceed error      |      RAM exceed error      |      RAM exceed error      |
+|          Polynomial Function Kernel Regression           |      RAM exceed error      |      RAM exceed error      |      RAM exceed error      |
+|          Radial Basis Function Gaussian Process          |      RAM exceed error      |      RAM exceed error      |      RAM exceed error      |
+|          Dot Product Function Gaussian Process           |      RAM exceed error      |      RAM exceed error      |      RAM exceed error      |
+|     Radial Basis Function Support Vector Regression      |           0.3083           |          22.5574           |           2.8287           |
+|             Linear Support Vector Regression             |             -              |             -              |             -              |
+|           Polynomial Support Vector Regression           |             -              |             -              |             -              |
+|                      Neural Network                      | Needed Further Calibration | Needed Further Calibration | Needed Further Calibration |
+
+Regarding the results, the top three regression methods according to their prediction performance are:
+
+|                          Method                          | R<sup>2</sup> |  RMSE   |  MAE   |
+| :------------------------------------------------------: | :-----------: | :-----: | :----: |
+|     Radial Basis Function Support Vector Regression      |    0.3083     | 22.5574 | 2.8287 |
+|                    KNear--st Neighbor                    |    0.3332     | 21.7400 | 2.866  |
+| Multiple Linear Regression (Stochastic Gradient Descent) |    0.3710     | 20.4870 | 3.116  |
+
+## References
+
+- Pandas documentation [pandas.pydata.org/docs/](https://pandas.pydata.org/docs/)
+- Sklearn documentation [scikit-learn.org/stable/modules/classes.html](https://scikit-learn.org/stable/modules/classes.html)
+- Tensorflow documentation [tensorflow.org/api_docs/python/tf](https://www.tensorflow.org/api_docs/python/tf)
+- The-Weather-Scraper (https://github.com/floodsense/the-weather-scraper)
