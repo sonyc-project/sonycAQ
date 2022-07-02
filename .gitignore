@@ -1,3 +1,11 @@
 
 notebooks/.ipynb_checkpoints/aq_data_pull-checkpoint.ipynb
 notebooks/.ipynb_checkpoints/aq_data_pull-checkpoint.ipynb
+notebooks/.DS_Store
+notebooks/Ml_modal_with_Local_weather_station/.DS_Store
+notebooks/Ml_modal_with_Local_weather_station/settings.py
+*.pyc
+notebooks/Ml_modal_with_Local_weather_station/.ipynb_checkpoints/apply_model_fit_to_new_data-checkpoint.ipynb
+notebooks/Ml_modal_with_Local_weather_station/.ipynb_checkpoints/with_weather_ML-checkpoint.ipynb
+*.pyc
+*.pyc

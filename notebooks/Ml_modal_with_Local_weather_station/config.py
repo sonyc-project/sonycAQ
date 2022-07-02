@@ -28,3 +28,7 @@ UNIT_SYSTEM = "metric"
 
 # Automatically find first date where data is logged
 FIND_FIRST_DATE = True
+
+# CM edit for Sunset PArk deployments
+START_DATE = datetime.strptime('2022-04-13', '%Y-%m-%d').date()
+END_DATE = datetime.strptime('2022-06-07', '%Y-%m-%d').date()

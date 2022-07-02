@@ -4,25 +4,33 @@
 import requests
 import csv
 import lxml.html as lh
+import argparse
 
 import config
 
 from util.UnitConverter import ConvertToSystem
 from util.Parser import Parser
 from util.Utils import Utils
+from datetime import datetime
 
 # configuration
 stations_file = open('stations.txt', 'r')
 URLS = stations_file.readlines()
-# Date format: YYYY-MM-DD
-START_DATE = config.START_DATE
-END_DATE = config.END_DATE
 
 # set to "metric" or "imperial"
 UNIT_SYSTEM = config.UNIT_SYSTEM
 # find the first data entry automatically
 FIND_FIRST_DATE = config.FIND_FIRST_DATE
 
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--st_date')
+parser.add_argument('--en_date')
+args = parser.parse_args()
+
+# Date format: YYYY-MM-DD
+START_DATE = datetime.strptime(args.st_date, '%Y-%m-%d').date()
+END_DATE = datetime.strptime(args.en_date, '%Y-%m-%d').date()
 
 def scrap_station(weather_station_url):
 
@@ -90,7 +98,7 @@ def scrap_station(weather_station_url):
                 print(f'Saving {len(data_to_write)} rows')
                 writer.writerows(data_to_write)
             except Exception as e:
-                print(e)
+                pass
 
 
 for url in URLS:
