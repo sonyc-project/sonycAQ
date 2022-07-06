@@ -1,5 +1,7 @@
 import time
 from tqdm.notebook import tqdm
+import pandas as pd
+import requests
 
 GROUP = time.time()
 
@@ -47,3 +49,40 @@ def download_sensor_data(es, table, key=None, nodeid=None, start=None, end=None,
             f.write(json.dumps(h) + '\n')
     print('all done!')
     return fname
+
+def praxis_data_download(st_date_utc, en_date_utc, avg_over_min):
+    # Import and format Praxis data
+    uri = 'https://aws.southcoastscience.com/topicMessages?topic=nyu/brooklyn/loc/3/particulates&' \
+    'startTime=%s&endTime=%s&checkpoint=**:/%i:00' \
+    % (st_date_utc, en_date_utc, avg_over_min)
+    
+    praxis_df = pd.DataFrame([])
+
+    while uri != '':
+        header = {"authorization": "api-key nyu-brooklyn"}
+        response = requests.get(uri, headers=header)
+        json = response.json()
+
+        data = {}
+
+        data['ts'] = pd.to_datetime([ele['rec'] for ele in json['Items']]).tz_convert(tz='US/Eastern')
+
+        data['praxis_pm1_vals'] = [ele['val']['pm1'] for ele in json['Items']]
+        data['praxis_pm2p5_vals'] = [ele['val']['pm2p5'] for ele in json['Items']]
+        data['praxis_pm10_vals'] = [ele['val']['pm10'] for ele in json['Items']]
+
+        data['praxis_pm1_vals_adj'] = [ele['exg']['rn20']['pm1'] for ele in json['Items']]
+        data['praxis_pm2p5_vals_adj'] = [ele['exg']['rn20']['pm2p5'] for ele in json['Items']]
+        data['praxis_pm10_vals_adj'] = [ele['exg']['rn20']['pm10'] for ele in json['Items']]
+
+    #     praxis_df = pd.DataFrame(data).set_index('ts').resample(avg_over).mean()
+
+        if 'next' in json:
+            uri = json['next']
+        else:
+            uri = ''
+        praxis_df = pd.concat([praxis_df, pd.DataFrame(data)])
+
+        time.sleep(0.5)
+    praxis_df = praxis_df.set_index('ts').resample('%iT' % avg_over_min).mean()
+    return praxis_df
