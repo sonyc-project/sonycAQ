@@ -2,6 +2,7 @@ import time
 from tqdm.notebook import tqdm
 import pandas as pd
 import requests
+import math
 
 GROUP = time.time()
 
@@ -86,3 +87,31 @@ def praxis_data_download(st_date_utc, en_date_utc, avg_over_min):
         time.sleep(0.5)
     praxis_df = praxis_df.set_index('ts').resample('%iT' % avg_over_min).mean()
     return praxis_df
+
+def calculate_us_epa_aqi(Conc):
+
+    c = (math.floor(10 * Conc)) / 10
+    if (c >= 0 and c < 12.1):
+        AQI = Linear(50, 0, 12, 0, c)
+    elif (c >= 12.1 and c < 35.5):
+        AQI = Linear(100, 51, 35.4, 12.1, c)
+    elif (c >= 35.5 and c < 55.5):
+        AQI = Linear(150, 101, 55.4, 35.5, c)
+    elif (c >= 55.5 and c<150.5):
+        AQI = Linear(200, 151, 150.4, 55.5, c)
+    elif (c >= 150.5 and c < 250.5):
+        AQI = Linear(300, 201, 250.4, 150.5, c)
+    elif (c >= 250.5 and c < 350.5):
+        AQI = Linear(400, 301, 350.4, 250.5, c)
+    elif (c >= 350.5 and c < 500.5):
+        AQI = Linear(500, 401, 500.4, 350.5, c)
+    else:
+        c = 500
+        AQI = Linear(500, 401, 500.4, 350.5, c)
+    return AQI;
+    
+def Linear(AQIhigh, AQIlow, Conchigh, Conclow, Conc):
+    a = ((Conc-Conclow) / (Conchigh-Conclow)) * (AQIhigh-AQIlow) + AQIlow
+    linear = round(a)
+    return linear
+
